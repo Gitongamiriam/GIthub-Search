@@ -1,4 +1,8 @@
 export class UserProfile {
-constructor(public username:string,public repository:string)()
+getUser:boolean;
+constructor(public username:string,public repository:string){
+   this.getUser=false;
+}
+
 
 }

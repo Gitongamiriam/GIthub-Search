@@ -9,7 +9,9 @@ import { UserProfileService } from '../user-profile.service';
 export class UserProfileComponent implements OnInit {
   userProfileService:UserProfileService;
 
-  constructor(userProfileService: UserProfileService) { }
+  constructor(userProfileService: UserProfileService) {
+    this.userProfileService = userProfileService;
+   }
 
   ngOnInit() {
   }
