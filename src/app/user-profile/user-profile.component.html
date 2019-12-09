@@ -1,8 +1,52 @@
 <div class="container">
 <div class="jumbotron">
     <h1> Github Search<i class="fab fa-github"></i></h1>
+</div> 
+<input type="text" placeholder="enter username here...." class="form-control"  [(ngModel)]="username" name="username" (keyup.enter)="searchUsers()">
+<div *ngIf="username">
+    <div class="panel panel-default">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{{username.name}}</h4>
+            <div class="panel-body"> 
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{username.avatar_url}}" class="img-thumbnail github-avatar" alt="Avi">
+                    </div>
+                    <div class="col-md-8">
+                        <span class="label label-info space">{{username.public_repos}} Public Repositories
+                        </span>
+                        <span class="label label-primary space">{{username.public_gists}} Public Gists </span>
+                        <span class="label label-success space">{{username.followers}} Followers</span>
+                        <span class="label label-warning space">{{username.following}} Following</span>
+                        <br>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>User Name: {{username.login}}</strong></li>
+                            <li class="list-group-item"><strong>Email: {{username.email}}</strong></li>
+                            <li class="list-group-item"><strong>Blog: {{username.blog}}</strong></li>
+                            <li class="list-group-item"><strong>Member Since:
+                                    {{username.created_at}}</strong></li>
+                        </ul>
+                    </div> <br>
+                    <div class="panel-body">
+                        <h3>Repositories</h3>
+                            <div *ngFor="let repo of repos">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <h4><a target="_blank" href="{{repo.html_url}}">{{repo.name}}</a></h4>
+                                        <p>{{repo.description}}</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="label label-warning">{{repo.forks}} Forks</span>
+                                    </div>
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div> 
 </div>
-<p>{{}}</p>
-</div>
-
 

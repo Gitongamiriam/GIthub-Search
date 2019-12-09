@@ -1,6 +1,10 @@
 export class UserProfile {
-constructor(public username:string,public repository:string){
+    public username:string;
+    public Repositories:string;
+    public followers:string;
+    public following:string;
+    public avatar_url:string;
+    public email:string;
+    public created_at:string;
 }
 
-
-}

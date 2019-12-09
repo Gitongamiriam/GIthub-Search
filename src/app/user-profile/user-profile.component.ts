@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserProfileService } from '../user-profile.service';
-import { UserProfile } from '../user-profile';
+import { UserProfile } from '../user-profile.service';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -8,20 +8,21 @@ import { UserProfile } from '../user-profile';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  userProfileService:UserProfileService;
-  userDetail:UserProfile;
-  user:string;
-  userNames:string;
+  repos: any;
+  username: any;
+  
 
-  constructor(userProfileService: UserProfileService) {
-    this.userProfileService = userProfileService;
-   }
 
-  ngOnInit() {
-    this.userProfileService.getName(this.userNames)
-    this.userProfileService.getUserInfo().subscribe(user=>{
-    })
+  constructor(private userProfileService: UserProfile) { }
+  searchUsers(){
+    this.userProfileService.getUserNames(this.username);
+    this.userProfileService.getProfileRepos().subscribe(repos => {
+    this.repos = repos;
+    });
+    this.userProfileService.getProfileInfo().subscribe(username => {
+      this.username =username;
+
+    });
   }
-
-
+  ngOnInit() {}
 }
