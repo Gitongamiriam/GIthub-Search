@@ -6,6 +6,8 @@ import{ FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NavComponent } from './nav/nav.component';
+import { RepoComponent } from './repo/repo.component';
 
 
 
@@ -14,7 +16,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavComponent,
+    RepoComponent
   ],
   imports: [
     BrowserModule,
